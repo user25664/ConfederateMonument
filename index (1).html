@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confederate Monuments</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    background: #2d4b75;
+    color: white;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .tabs {
+    display: flex;
+    background: #e6e6e6;
+  }
+
+  .tab {
+    flex: 1;
+    text-align: center;
+    padding: 14px;
+    cursor: pointer;
+    border-right: 1px solid #ccc;
+    background: #dcdcdc;
+  }
+
+  .tab:last-child {
+    border-right: none;
+  }
+
+  .tab.active {
+    background: white;
+    font-weight: bold;
+  }
+
+  .content {
+    padding: 20px;
+    background: white;
+  }
+
+  section {
+    display: none;
+  }
+
+  section.active {
+    display: block;
+  }
+
+  /* NEW — make images small & equal size */
+  section img {
+    width: 250px;
+    height: 300px;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Confederate Monuments</h1>
+</header>
+
+<div class="tabs">
+  <div class="tab active" data-target="#overview">Case Study</div>
+  <div class="tab" data-target="#history">History</div>
+  <div class="tab" data-target="#controversy">Controversy</div>
+  <div class="tab" data-target="#preservation">Remember</div>
+  <div class="tab" data-target="#cited">Cites</div>
+</div>
+
+<div class="content">
+  <section id="overview" class="active">
+    <h2>Case Study</h2>
+    <img src="mon1.jpeg" alt="mon1.jpeg">
+    <img src="img.webp" alt="mon2.jpeg">
+    <p>TEXT</p>
+  </section>
+
+  <section id="history">
+    <h2>History</h2>
+    <p>TEXT</p>
+  </section>
+
+  <section id="controversy">
+    <h2>Controversy</h2>
+    <p>TEXT</p>
+  </section>
+
+  <section id="preservation">
+    <h2>Preservation</h2>
+    <p>TEXT</p>
+  </section>
+  
+  <section id="cited">
+    <h2>Cites</h2>
+    <p>TEXT</p>
+  </section>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll(".tab");
+  const sections = document.querySelectorAll("section");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      sections.forEach(sec => sec.classList.remove("active"));
+
+      tab.classList.add("active");
+      document.querySelector(tab.dataset.target).classList.add("active");
+    });
+  });
+</script>
+
+</body>
+</html>
